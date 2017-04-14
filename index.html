@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        table {
+            border-spacing: 0 10px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bold;
+        }
+
+        th {
+            padding: 10px 20px;
+            background: #56433D;
+            color: #F9C941;
+            border-right: 2px solid;
+            font-size: 0.9em;
+        }
+
+        th:first-child {
+            text-align: left;
+        }
+
+        th:last-child {
+            border-right: none;
+        }
+            
+        td {
+            vertical-align: top;
+            padding: 10px;
+            font-size: 14px;
+            text-align: left;
+            border-top: 2px solid #56433D;
+            border-bottom: 2px solid #56433D;
+            border-right: 2px solid #56433D;
+        }
+            
+        td:first-child {
+            border-left: 2px solid #56433D;
+        }
+            
+        td:nth-child(2) {
+            text-align: left;
+        }
+            
+        label {
+            width: 32px;
+            height: 26px;
+            display: block;
+            position: relative;
+        }
+       input[type="checkbox"] + span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/checkbox.png) no-repeat;
+            cursor: pointer;
+        }
+            
+        input[type="checkbox"]:checked + span {
+            background-position: 0 -26px;
+        }
+            
+        #coins-bim-table img {
+            width: 150px;
+            height: 150px;
+        }
+            
+        #bons-pam-table img {
+            width: 150px;
+            height: 320px;
+        }
+            
+        #bons-reg-table img {
+            width: 320px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <th>Коллекция</th>
+                    <th>Наименований</th>
+                    <th>В наличии</th>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table id="coins-bim-table">
+                <tr>
+                    <th>Наименование</th>
+                    <th>Изображение</th>
+                    <th>Наличие</th>
+                </tr>
+            </table>
+            <table id="bons-pam-table">
+                <tr>
+                    <th>Наименование</th>
+                    <th>Изображение</th>
+                    <th>Наличие</th>
+                </tr>
+            </table>
+            <table id="bons-reg-table">
+                <tr>
+                    <th>Наименование</th>
+                    <th>Изображение</th>
+                    <th>Наличие</th>
+                </tr>
+            </table>
+            <table id="coins-gal-table">
+                <tr>
+                    <th>Наименование</th>
+                    <th>Изображение</th>
+                    <th>Наличие</th>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $("ul").hide();
+        $('#coins-bim-table').hide();
+        $('#bons-pam-table').hide();
+        $('#bons-reg-table').hide();
+        $("#coins-bim").click(function () {
+            $("#coins-bim-table").show();
+            $("#bons-pam-table").hide();
+            $("#bons-reg-table").hide();
+        });
+        $("#bons-pam").click(function () {
+            $("#coins-bim-table").hide();
+            $("#bons-pam-table").show();
+            $("#bons-reg-table").hide();
+        });
+        $("#bons-reg").click(function () {
+            $("#coins-bim-table").hide();
+            $("#bons-pam-table").hide();
+            $("#bons-reg-table").show();
+        });
+    });
+
+    var haveCoinsBim = 0;
+    var haveBonsPam = 0;
+    var haveBonsReg = 0;
+    var countCoinsBim = 0;
+    var countBonsPam = 0;
+    var countBonsReg = 0;
+
+    $(function () {
+        var $coinsBimTable = $('#coins-bim-table');
+        countCoinsBim = $coinsBimTable.find('input[type=checkbox]').size();
+        var $bonsPamTable = $("#bons-pam-table");
+        countBonsPam = $bonsPamTable.find('input[type=checkbox]').size();
+        var $bonsRegTable = $("#bons-reg-table");
+        countBonsReg = $bonsRegTable.find('input[type=checkbox]').size();
+        displayCount();
+        $coinsBimTable.find('input[type=checkbox]').click(function () {
+            haveCoinsBim = $('#coins-bim-table').find('input:checked').size();
+            displayCount();
+        });
+        $bonsPamTable.find('input[type=checkbox]').click(function () {
+            haveBonsPam = $('#bons-pam-table').find('input:checked').size();
+            displayCount();
+        });
+        $bonsRegTable.find('input[type=checkbox]').click(function () {
+            haveBonsReg = $('#bons-reg-table').find('input:checked').size();
+            displayCount();
+        });
+    });
+
+   function displayCount() {
+        $('#count-coins-bim').text(countCoinsBim);
+        $('#count-bons-pam').text(countBonsPam);
+        $('#count-bons-reg').text(countBonsReg);
+        $('#have-coins-bim').text(haveCoinsBim);
+        $('#have-bons-pam').text(haveBonsPam);
+        $('#have-bons-reg').text(haveBonsReg);
+    }
+</script>
+</body>
+</html>
