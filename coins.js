@@ -7,3 +7,15 @@ function updateCoinsCount()
         // alert("Data: " + data + "\nStatus: " + status);
     });
 }
+function updateCollections()
+{
+    $.get("get-collections.php", function (data) {
+        var html = "";
+        for(var i = 0; i < data.length; i++){
+            var collection = data[i];
+            html += "<div>"+collection.name+"</div> "
+        }
+        $("#collections").html(html);
+        // alert("Data: " + data + "\nStatus: " + status);
+    });
+}
