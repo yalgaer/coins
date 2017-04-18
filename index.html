@@ -6,15 +6,28 @@
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous">
     </script>
-    <script src="coins.js"></script>
+    <script
+            src="coins.js">
+    </script>
+    <link rel="stylesheet" type="text/css" href="coins.css">
 </head>
 <body>
-Всего монет: <span id="coins-count">Неизвестно</span>
-<div id="collections">Коллекции</div>
+<!--Всего монет: <span id="coins-count">Неизвестно</span>-->
+<table>
+    <tr>
+        <td>
+            <div id="collections">Коллекции</div>
+        </td>
+        <td>
+            <div id="coins">Монеты</div>
+        </td>
+    </tr>
+</table>
 
 <script>
-    updateCoinsCount();
+    //updateCoinsCount();
     updateCollections();
+    updateCoins();
 </script>
 </body>
 </html>

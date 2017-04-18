@@ -11,11 +11,37 @@ function updateCollections()
 {
     $.get("get-collections.php", function (data) {
         var html = "";
+        html += "<table>";
+        html += "<tr><th>Коллекции</th></tr>";
         for(var i = 0; i < data.length; i++){
+            html += "<tr>";
+            html += "<td>";
             var collection = data[i];
-            html += "<div>"+collection.name+"</div> "
+            html += collection.name;
+            html += "</td>";
+            html += "</tr>";
         }
+        html = html + "</table>";
         $("#collections").html(html);
+        // alert("Data: " + data + "\nStatus: " + status);
+    });
+}
+function updateCoins()
+{
+    $.get("get-coins.php", function (data) {
+        var html = "";
+        html += "<table>";
+        html += "<tr><th>Монеты</th></tr>";
+        for(var i = 0; i < data.length; i++){
+            html += "<tr>";
+            html += "<td>";
+            var collection = data[i];
+            html += collection.name;
+            html += "</td>";
+            html += "</tr>";
+        }
+        html = html + "</table>";
+        $("#coins").html(html);
         // alert("Data: " + data + "\nStatus: " + status);
     });
 }
