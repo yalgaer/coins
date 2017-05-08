@@ -31,12 +31,18 @@ function updateCoins()
     $.get("get-coins.php", function (data) {
         var html = "";
         html += "<table>";
-        html += "<tr><th>Монеты</th></tr>";
+        html += "<tr><th>Монеты</th><th>Год</th><th>Фото</th></tr>";
         for(var i = 0; i < data.length; i++){
+            var coins = data[i];
             html += "<tr>";
             html += "<td>";
-            var collection = data[i];
-            html += collection.name;
+            html += coins.name;
+            html += "</td>";
+            html += "<td>";
+            html += coins.year;
+            html += "</td>";
+            html += "<td>";
+            html += "<img src='"+coins.img+"'/>";
             html += "</td>";
             html += "</tr>";
         }
