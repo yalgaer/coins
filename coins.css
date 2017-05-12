@@ -59,9 +59,9 @@ input[type="checkbox"]:checked + span {
     background-position: 0 -26px;
 }
 
-#coins-bim-table img {
-    width: 150px;
-    height: 150px;
+#coins table img {
+    max-width: 320px;
+    max-height: 320px;
 }
 
 #bons-pam-table img {
