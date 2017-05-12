@@ -12,12 +12,19 @@ function updateCollections()
     $.get("get-collections.php", function (data) {
         var html = "";
         html += "<table>";
-        html += "<tr><th>Коллекции</th></tr>";
+        html += "<tr><th>№</th><th>Коллекции</th><th>Монет</th><th>В наличии</th></tr>";
         for(var i = 0; i < data.length; i++){
+            var collection = data[i];
             html += "<tr>";
             html += "<td>";
-            var collection = data[i];
+            html += collection.pos;
+            html += "</td>";
+            html += "<td>";
             html += collection.name;
+            html += "</td>";
+            html += "<td>";
+            html += "</td>";
+            html += "<td>";
             html += "</td>";
             html += "</tr>";
         }
@@ -31,7 +38,7 @@ function updateCoins()
     $.get("get-coins.php", function (data) {
         var html = "";
         html += "<table>";
-        html += "<tr><th>№</th><th>Наименование</th><th>Год</th><th>Двор</th><th>Фото</th></tr>";
+        html += "<tr><th>№</th><th>Наименование</th><th>Год</th><th>Двор</th><th>Фото</th><th>Наличие</th></tr>";
         for(var i = 0; i < data.length; i++){
             var coins = data[i];
             html += "<tr>";
@@ -49,6 +56,9 @@ function updateCoins()
             html += "</td>";
             html += "<td>";
             html += "<img src='"+coins.img+"'/>";
+            html += "</td>";
+            html += "<td>";
+            html += coins.number;
             html += "</td>";
             html += "</tr>";
         }
