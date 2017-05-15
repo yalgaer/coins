@@ -23,6 +23,7 @@ function updateCollections()
             html += collection.name;
             html += "</td>";
             html += "<td>";
+            html += collection.coins_count;
             html += "</td>";
             html += "<td>";
             html += "</td>";

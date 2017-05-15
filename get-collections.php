@@ -19,8 +19,14 @@ mysqli_set_charset($con,"utf8");
 //--------------------------------------------------------------------------
 // 2) Query database for data
 //--------------------------------------------------------------------------
+$result = mysqli_query($con, "SELECT collections.*,
+                                  (SELECT COUNT(asset.id)
+                                   FROM asset
+                                   WHERE asset.col_id = collections.col_id) AS coins_count
+                                FROM collections;");          //query
 
-$result = mysqli_query($con, "SELECT * FROM collections");          //query
+//$result = mysqli_query($con, "SELECT * FROM collections");          //query
+
 //$array = mysqli_fetch_row($result);                          //fetch result
 
 $rows = array();
