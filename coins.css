@@ -1,7 +1,6 @@
 table {
-    border-spacing: 0 10px;
+    border-spacing: 0 0;
     font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
 }
 
 th {
@@ -25,19 +24,35 @@ td {
     padding: 10px;
     font-size: 14px;
     text-align: left;
-    border-top: 2px solid #56433D;
-    border-bottom: 2px solid #56433D;
-    border-right: 2px solid #56433D;
+    border-top: none;
+    border-bottom: 1px solid #56433D;
+    border-right: 1px solid #56433D;
 }
 
 td:first-child {
-    border-left: 2px solid #56433D;
+    border-left: 1px solid #56433D;
+    text-align: center;
 }
 
 td:nth-child(2) {
     text-align: left;
 }
 
+.col-name {
+    cursor: pointer;
+    color: darkslateblue;
+    font-size: 14px;
+}
+
+#col {
+    border: none;
+    padding: 0 20px;
+
+}
+#coins-column {
+    border: none;
+    padding: 0 100px;
+}
 label {
     width: 32px;
     height: 26px;

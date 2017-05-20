@@ -19,7 +19,7 @@ function updateCollections()
             html += "<td>";
             html += collection.pos;
             html += "</td>";
-            html += "<td>";
+            html += '<td class="col-name" onclick="updateCoins(\'' + collection.col_id + '\')">';
             html += collection.name;
             html += "</td>";
             html += "<td>";
@@ -35,9 +35,9 @@ function updateCollections()
         // alert("Data: " + data + "\nStatus: " + status);
     });
 }
-function updateCoins()
+function updateCoins(colId)
 {
-    $.get("get-coins.php", function (data) {
+    $.get("get-coins.php?id=" + colId, function (data) {
         var html = "";
         html += "<table>";
         html += "<tr><th>№</th><th>Наименование</th><th>Год</th><th>Двор</th><th>Фото</th><th>Наличие</th></tr>";
