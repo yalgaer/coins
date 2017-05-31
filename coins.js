@@ -19,7 +19,7 @@ function updateCollections()
             html += "<td>";
             html += collection.pos;
             html += "</td>";
-            html += '<td class="col-name" onclick="updateCoins(\'' + collection.col_id + '\')">';
+            html += '<td class="col-name" onclick="onCollectionsClicked(\'' + collection.col_id + '\')">';
             html += collection.name;
             html += "</td>";
             html += "<td>";
@@ -34,6 +34,11 @@ function updateCollections()
         $("#collections").html(html);
         // alert("Data: " + data + "\nStatus: " + status);
     });
+}
+function onCollectionsClicked(colId) {
+    console.log("Save" + colId);
+    localStorage.setItem("currentCol", colId);
+    updateCoins(colId);
 }
 function updateCoins(colId)
 {
@@ -69,3 +74,4 @@ function updateCoins(colId)
         // alert("Data: " + data + "\nStatus: " + status);
     });
 }
+

@@ -26,8 +26,12 @@
 
 <script>
     //updateCoinsCount();
+    var currentCol = localStorage.getItem("currentCol");
+    if (currentCol === null){
+        currentCol = "bons_rf_pam";
+    }
     updateCollections();
-    updateCoins();
+    updateCoins(currentCol);
 </script>
 </body>
 </html>
