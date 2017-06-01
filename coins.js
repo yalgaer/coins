@@ -36,7 +36,6 @@ function updateCollections()
     });
 }
 function onCollectionsClicked(colId) {
-    console.log("Save" + colId);
     localStorage.setItem("currentCol", colId);
     updateCoins(colId);
 }
@@ -65,7 +64,8 @@ function updateCoins(colId)
             html += "<img src='"+coins.img+"'/>";
             html += "</td>";
             html += "<td>";
-            html += coins.number;
+            html += '<input class="coins-number" type="text" value="' + coins.number + '">';
+            html += '<input type="submit" value="ОК">';
             html += "</td>";
             html += "</tr>";
         }
