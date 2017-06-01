@@ -39,6 +39,10 @@ function onCollectionsClicked(colId) {
     localStorage.setItem("currentCol", colId);
     updateCoins(colId);
 }
+
+function onChange(coinId, value) {
+    alert(coinId + ' ' + value);
+}
 function updateCoins(colId)
 {
     $.get("get-coins.php?id=" + colId, function (data) {
@@ -64,8 +68,7 @@ function updateCoins(colId)
             html += "<img src='"+coins.img+"'/>";
             html += "</td>";
             html += "<td>";
-            html += '<input class="coins-number" type="text" value="' + coins.number + '">';
-            html += '<input type="submit" value="ОК">';
+            html += '<input class="coins-number" type="text" onchange="onChange(' + coins.id + ', this.value)" value="' + coins.number + '">';
             html += "</td>";
             html += "</tr>";
         }
