@@ -1,12 +1,3 @@
-//обновляет число монет
-function updateCoinsCount()
-{
-    $.get("get-coins-count.php", function (data) {
-        var json = JSON.parse(data);
-        $("#coins-count").html(json[0])
-        // alert("Data: " + data + "\nStatus: " + status);
-    });
-}
 function updateCollections()
 {
     $.get("get-collections.php", function (data) {
@@ -40,9 +31,10 @@ function onCollectionsClicked(colId) {
     updateCoins(colId);
 }
 
-function onChange(coinId, value) {
-    alert(coinId + ' ' + value);
+function updateCoinsCount(coinId, value) {
+    $.get("save-coins.php?id=" + coinId + "&count=" + value);
 }
+
 function updateCoins(colId)
 {
     $.get("get-coins.php?id=" + colId, function (data) {
@@ -68,7 +60,8 @@ function updateCoins(colId)
             html += "<img src='"+coins.img+"'/>";
             html += "</td>";
             html += "<td>";
-            html += '<input class="coins-number" type="text" onchange="onChange(' + coins.id + ', this.value)" value="' + coins.number + '">';
+            html += '<input class="coins-number"  onClick="this.select()" onchange="updateCoinsCount(' + coins.id + ', this.value); this.blur()" ' +
+                'value="' + coins.number + '">';
             html += "</td>";
             html += "</tr>";
         }
