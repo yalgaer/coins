@@ -19,8 +19,8 @@ mysqli_set_charset($con,"utf8");
 //--------------------------------------------------------------------------
 // 2) Query database for data
 //--------------------------------------------------------------------------
-$coinsCount = $_GET["count"];
-$id = $_GET["id"];
+$coinsCount = $_POST["count"];
+$id = $_POST["id"];
 
 $result = mysqli_query($con, "UPDATE asset SET number = " . $coinsCount . " WHERE id = " . $id);          //query
 

@@ -32,7 +32,7 @@ function onCollectionsClicked(colId) {
 }
 
 function updateCoinsCount(coinId, value) {
-    $.get("save-coins.php?id=" + coinId + "&count=" + value);
+    $.post("save-coins.php", {id: coinId, count: value});
 }
 
 function updateCoins(colId)
