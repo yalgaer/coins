@@ -43,6 +43,9 @@ td:nth-child(2) {
     color: darkslateblue;
     font-size: 14px;
 }
+.current-col {
+    font-size: 18px;
+}
 
 #col {
     border: none;
@@ -83,7 +86,7 @@ input[type="checkbox"]:checked + span {
 
 #coins table img {
     max-width: 320px;
-    max-height: 320px;
+    max-height: 120px;
 }
 
 #bons-pam-table img {
