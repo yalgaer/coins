@@ -20,7 +20,7 @@ function updateCollections(activeColId) {
 
             if (collection.type !== prevType) {
                 html += '<div class="col-type">';
-                html += "<div onclick='onTypeClicked(this)'>" + collection.type + "</div>";
+                html += "<div onclick='onTypeClicked(this)'>" + tr(collection.type) + "</div>";
             }
 
             if (collection.country !== prevCountry) {
@@ -45,6 +45,13 @@ function updateCollections(activeColId) {
             setActiveCollection(activeColId);
         }
     });
+}
+function tr(sys) {
+    switch (sys){
+        case "bons":
+            return "Банкноты";
+    }
+    return sys;
 }
 
 function onCollectionsClicked(colId) {

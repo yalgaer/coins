@@ -47,6 +47,7 @@ td:nth-child(2) {
     cursor: pointer;
     color: darkslateblue;
     font-size: 14px;
+    font-family: Tahoma, Arial, Verdana, serif;
     text-align: left;
     min-width: 500px;
     padding-left: 30px;
