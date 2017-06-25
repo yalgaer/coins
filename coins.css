@@ -45,15 +45,18 @@ td:nth-child(2) {
 
 .col-name {
     cursor: pointer;
-    color: darkslateblue;
+    color: #000000;
     font-size: 14px;
     font-family: Tahoma, Arial, Verdana, serif;
     text-align: left;
     min-width: 500px;
     padding-left: 30px;
 }
+.col-name:hover {
+    color: red;
+}
 .current-col {
-    font-size: 18px;
+    font-weight: bold;
 }
 .col-type {
     font-size: 20px;

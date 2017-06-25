@@ -25,7 +25,7 @@ function updateCollections(activeColId) {
 
             if (collection.country !== prevCountry) {
                 html += '<div class="col-country">';
-                html += "<div onclick='onCountryClicked(this)'>" + collection.country + "</div>";
+                html += "<div onclick='onCountryClicked(this)'>" + tr(collection.country) + "</div>";
             }
 
             html += '<div id="col-id-' + collection.col_id + '" class="col-name" onclick="onCollectionsClicked(\'' + collection.col_id + '\')">';
@@ -50,6 +50,14 @@ function tr(sys) {
     switch (sys){
         case "bons":
             return "Банкноты";
+        case "coins":
+            return "Монеты";
+        case "RUS":
+            return "Россия";
+        case "EU":
+            return "Европа";
+        case "USA":
+            return "Соединённые Штаты Америки";
     }
     return sys;
 }
