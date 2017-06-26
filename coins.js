@@ -19,17 +19,26 @@ function updateCollections(activeColId) {
             }
 
             if (collection.type !== prevType) {
-                html += '<div class="col-type">';
-                html += "<div onclick='onTypeClicked(this)'>" + tr(collection.type) + "</div>";
+                html += "<div class='col-type'>";
+                html += '<div>';
+                html += "<div class='col-type-name' onclick='onTypeClicked(this)'>";
+                html += tr(collection.type) +"<em> (" + collection.coins_count_type + "/" + collection.my_coins_count_type + ")</em>";
+                html += "</div>";
+                html += "</div>";
             }
 
             if (collection.country !== prevCountry) {
-                html += '<div class="col-country">';
-                html += "<div onclick='onCountryClicked(this)'>" + tr(collection.country) + "</div>";
+                html += "<div class='col-country'>";
+                html += '<div>';
+                html += "<div class='col-country-name' onclick='onCountryClicked(this)'>";
+                html += tr(collection.country) + "<em> (" + collection.coins_count_country + "/" + collection.my_coins_count_country + ")</em>";
+                html += "</div>";
+                html += "</div>";
             }
-
+            html += "<div>";
             html += '<div id="col-id-' + collection.col_id + '" class="col-name" onclick="onCollectionsClicked(\'' + collection.col_id + '\')">';
-            html += collection.name + " (" + collection.coins_count + "/" + collection.my_coins_count + ")";
+            html += collection.name + "<em> (" + collection.coins_count + "/" + collection.my_coins_count + ")</em>";
+            html += "</div>";
             html += "</div>";
             prevType = collection.type;
             prevCountry = collection.country;
@@ -68,11 +77,11 @@ function onCollectionsClicked(colId) {
 }
 
 function onTypeClicked(catEl) {
-    $(catEl).parent().find(".col-country").toggle();
+    $(catEl).parents(".col-type").find(".col-country").toggle();
 }
 
 function onCountryClicked(catEl) {
-    $(catEl).parent().find(".col-name").toggle();
+    $(catEl).parents(".col-country").find(".col-name").toggle();
 }
 
 function updateCoinsCount(coinId, value) {
