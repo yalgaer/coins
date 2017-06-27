@@ -30,7 +30,7 @@ function updateCollections(activeColId) {
             if (collection.country !== prevCountry) {
                 html += "<div class='col-country'>";
                 html += '<div>';
-                html += "<div class='col-country-name' onclick='onCountryClicked(this)'>";
+                html += "<div class='col-country-name expanded-country' onclick='onCountryClicked(this)'>";
                 html += tr(collection.country) + "<em> (" + collection.coins_count_country + "/" + collection.my_coins_count_country + ")</em>";
                 html += "</div>";
                 html += "</div>";
@@ -78,10 +78,24 @@ function onCollectionsClicked(colId) {
 
 function onTypeClicked(catEl) {
     $(catEl).parents(".col-type").find(".col-country").toggle();
+    $(".col-type").removeClass("current-type");
+    $("#col-type-" + catEl).addClass("current-type");
 }
 
 function onCountryClicked(catEl) {
-    $(catEl).parents(".col-country").find(".col-name").toggle();
+    var $countryName = $(catEl);
+
+    var $allCollectionNames = $(catEl).parents(".col-country").find(".col-name");
+    $allCollectionNames.toggle();
+
+    if ($allCollectionNames.is(":visible")) {
+        $countryName.addClass("expanded-country");
+        $countryName.removeClass("collapsed-country");
+    } else {
+        $countryName.addClass("collapsed-country");
+        $countryName.removeClass("expanded-country");
+    }
+
 }
 
 function updateCoinsCount(coinId, value) {

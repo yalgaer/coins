@@ -49,35 +49,52 @@ td:nth-child(2) {
     font-size: 14px;
     font-family: Tahoma, Arial, Verdana, serif;
     text-align: left;
-    padding-left: 30px;
+    padding-left: 51px;
     display: inline-block;
     padding-top: 5px;
+    background: url("images/tree1.gif") no-repeat 34px 0;
 }
 .col-name:hover {
     color: red;
 }
 .current-col {
     font-weight: bold;
+    background: url("images/tree2.gif") no-repeat 34px 0;
 }
+.current-type {
+    font-weight: bold;
+    background: url("images/tree2.gif") no-repeat 0 0;
+}
+
 .col-type-name:hover {
     color: red;
 }
 .col-type-name {
     display: inline-block;
-    padding-top: 10px;
+    padding-top: 2px;
+    padding-left: 17px;
     font-size: 20px;
     cursor: pointer;
+    background: url("images/tree3.gif") no-repeat 0 0;
 }
 .col-country-name:hover {
     color: red;
 }
 .col-country-name {
     display: inline-block;
-    padding-top: 10px;
+    padding-top: 2px;
+    padding-left: 34px;
     font-size: 16px;
     cursor: pointer;
-    padding-left: 15px;
+}
 
+.collapsed-country {
+    background: url("images/tree3.gif") no-repeat 17px 0;
+}
+
+.expanded-country {
+    font-weight: bold;
+    background: url("images/tree2.gif") no-repeat 17px 0;
 }
 
 #col {
