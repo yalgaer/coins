@@ -24,9 +24,13 @@ $result = mysqli_query($con, "SELECT
                                 (SELECT COUNT(asset.id) FROM asset WHERE asset.col_id = collections.col_id) AS coins_count,
                                 (SELECT COUNT(asset.id) FROM asset WHERE asset.type = collections.type) AS coins_count_type,
                                 (SELECT COUNT(asset.id) FROM asset WHERE asset.country = collections.country) AS coins_count_country,
-                                (SELECT COUNT(asset.id) FROM asset WHERE asset.col_id = collections.col_id AND asset.number !=0 ) AS my_coins_count,
-                                (SELECT COUNT(asset.id) FROM asset WHERE asset.type = collections.type AND asset.number !=0 ) AS my_coins_count_type,
-                                (SELECT COUNT(asset.id) FROM asset WHERE asset.col_id = collections.country AND asset.number !=0 ) AS my_coins_count_country
+                                (SELECT COUNT(asset.id) FROM asset WHERE asset.col_id = collections.col_id AND asset.number != 0 ) AS my_coins_count,
+                                (SELECT COUNT(asset.id) FROM asset WHERE asset.type = collections.type AND asset.number != 0 ) AS my_coins_count_type,
+                                (SELECT COUNT(asset.id) FROM asset WHERE asset.col_id = collections.country AND asset.number != 0 ) AS my_coins_count_country,
+                                (SELECT COUNT(asset.id) FROM asset WHERE asset.col_id = collections.col_id AND asset.number = 0 ) AS need_coins_count,
+                                (SELECT COUNT(asset.id) FROM asset WHERE asset.type = collections.type AND asset.number = 0 ) AS need_coins_count_type,
+                                (SELECT COUNT(asset.id) FROM asset WHERE asset.col_id = collections.country AND asset.number = 0 ) AS need_coins_count_country
+
                               FROM collections ORDER BY collections.type, collections.country;");          //query
 
 
