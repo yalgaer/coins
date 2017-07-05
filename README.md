@@ -6,3 +6,5 @@ It includes about 50 collections.
 All Russian collections, current Europe collections are included.
 
 The cat has to smile always.
+
+Canada.
