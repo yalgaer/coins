@@ -46,6 +46,7 @@ td:nth-child(2) {
     height: 50px;
     background: steelblue;
     font-size: 40px;
+    padding-left: 20px;
 }
 .coin-pos {
     text-align: center;
