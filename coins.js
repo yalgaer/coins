@@ -22,7 +22,7 @@ function updateCollections(activeColId) {
                 html += "<div class='col-type'>";
                 html += '<div>';
                 html += "<div class='col-type-name expanded-type' onclick='onTypeClicked(this)'>";
-                html += tr(collection.type) +"<em> (" + collection.coins_count_type + "/" + collection.my_coins_count_type + ")</em>";
+                html += tr(collection.type) +"<em> (" + collection.my_coins_count_type + "/" + collection.coins_count_type + ")</em>";
                 html += "</div>";
                 html += "</div>";
             }
@@ -30,14 +30,14 @@ function updateCollections(activeColId) {
             if (collection.country !== prevCountry) {
                 html += "<div class='col-country'>";
                 html += '<div>';
-                html += "<div class='col-country-name expanded-country' onclick='onCountryClicked(this)'>";
-                html += tr(collection.country) + "<em> (" + collection.coins_count_country + "/" + collection.my_coins_count_country + ")</em>";
+                html += "<div class='col-country-name collapsed-country' onclick='onCountryClicked(this)'>";
+                html += tr(collection.country) + "<em> (" + collection.my_coins_count_country + "/" + collection.coins_count_country + ")</em>";
                 html += "</div>";
                 html += "</div>";
             }
             html += "<div>";
-            html += '<div id="col-id-' + collection.col_id + '" class="col-name" onclick="onCollectionsClicked(\'' + collection.col_id + '\')">';
-            html += collection.name + "<em> (" + collection.coins_count + "/" + collection.my_coins_count + ")</em>";
+            html += '<div id="col-id-' + collection.col_id + '" class="col-name" style="display: none" onclick="onCollectionsClicked(\'' + collection.col_id + '\')">';
+            html += collection.name + "<em> (" + collection.my_coins_count + "/" + collection.coins_count + ")</em>";
             html += "</div>";
             html += "</div>";
             prevType = collection.type;
@@ -51,6 +51,7 @@ function updateCollections(activeColId) {
         }
 
         $("#collections").html(html);
+
         if (activeColId) {
             setActiveCollection(activeColId);
         }
