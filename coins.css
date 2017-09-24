@@ -59,13 +59,13 @@ td:nth-child(2) {
 .col-name {
     cursor: pointer;
     color: #000000;
-    font-size: 14px;
+    font-size: 10px;
     font-family: Tahoma, Arial, Verdana, serif;
     text-align: left;
-    padding-left: 51px;
+    padding-left: 68px;
     display: inline-block;
     padding-top: 5px;
-    background: url("images/tree1.gif") no-repeat 34px 0;
+    background: url("images/tree1.gif") no-repeat 51px 0;
 }
 
 .col-name:hover {
@@ -74,14 +74,14 @@ td:nth-child(2) {
 
 .current-col {
     font-weight: bold;
-    background: url("images/tree2.gif") no-repeat 34px 0;
+    background: url("images/tree2.gif") no-repeat 51px 0;
 }
 
 .col-type-name {
     display: inline-block;
     padding-top: 2px;
     padding-left: 17px;
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
     background: url("images/tree3.gif") no-repeat 0 0;
 }
@@ -93,20 +93,33 @@ td:nth-child(2) {
 .col-country-name:hover {
     color: red;
 }
+
 .col-country-name {
     display: inline-block;
     padding-top: 2px;
+    padding-left: 51px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.col-region-name:hover {
+    color: red;
+}
+
+.col-region-name {
+    display: inline-block;
+    padding-top: 2px;
     padding-left: 34px;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
 }
 
 .collapsed-country {
-    background: url("images/tree3.gif") no-repeat 17px 0;
+    background: url("images/tree3.gif") no-repeat 34px 0;
 }
 
 .expanded-country {
-    background: url("images/tree2.gif") no-repeat 17px 0;
+    background: url("images/tree2.gif") no-repeat 34px 0;
 }
 
 .collapsed-type {
@@ -115,6 +128,13 @@ td:nth-child(2) {
 
 .expanded-type {
     background: url("images/tree2.gif") no-repeat 0 0;
+}
+.collapsed-region {
+    background: url("images/tree3.gif") no-repeat 17px 0;
+}
+
+.expanded-region {
+    background: url("images/tree2.gif") no-repeat 17px 0;
 }
 
 #col {

@@ -2,18 +2,23 @@ function updateCollections(activeColId) {
     $.get("get-collections.php", function (data) {
         var html = "";
         var prevType = null;
+        var prevRegion = null;
         var prevCountry = null;
         for (var i = 0; i < data.length; i++) {
             var collection = data[i];
 
-            if (collection.country !== prevCountry) {
-                if (prevCountry !== null) {
+            if (collection.type !== prevType) {
+                if (prevType !== null) {
                     html += "</div>";
                 }
             }
-
-            if (collection.type !== prevType) {
-                if (prevType !== null) {
+            if (collection.region !== prevRegion) {
+                if (prevRegion !== null) {
+                    html += "</div>";
+                }
+            }
+            if (collection.country !== prevCountry) {
+                if (prevCountry !== null) {
                     html += "</div>";
                 }
             }
@@ -23,6 +28,15 @@ function updateCollections(activeColId) {
                 html += '<div>';
                 html += "<div class='col-type-name expanded-type' onclick='onTypeClicked(this)'>";
                 html += tr(collection.type) +"<em> (" + collection.my_coins_count_type + "/" + collection.coins_count_type + ")</em>";
+                html += "</div>";
+                html += "</div>";
+            }
+
+            if (collection.region !== prevRegion) {
+                html += "<div class='col-region'>";
+                html += '<div>';
+                html += "<div class='col-region-name expanded-region' onclick='onRegionClicked(this)'>";
+                html += tr(collection.region);
                 html += "</div>";
                 html += "</div>";
             }
@@ -41,9 +55,13 @@ function updateCollections(activeColId) {
             html += "</div>";
             html += "</div>";
             prevType = collection.type;
+            prevRegion = collection.region;
             prevCountry = collection.country;
         }
         if (prevCountry !== null) {
+            html += "</div>";
+        }
+        if (prevRegion !== null) {
             html += "</div>";
         }
         if (prevType !== null) {
@@ -63,12 +81,21 @@ function tr(sys) {
             return "Банкноты";
         case "coins":
             return "Монеты";
-        case "RUS":
+        case "Russia":
             return "Россия";
-        case "EU":
+        case "Euro":
+            return "Евро";
+        case "Europe":
             return "Европа";
-        case "USA":
-            return "Соединённые Штаты Америки";
+        case "America":
+            return "Америка";
+        case "Australia":
+            return "Австралия и Океания";
+        case "Africa":
+            return "Африка";
+        case "Asia":
+            return "Азия";
+
     }
     return sys;
 }
@@ -93,6 +120,22 @@ function onTypeClicked(catEl) {
     }
 }
 
+function onRegionClicked(catEl) {
+    var $regionName = $(catEl);
+
+    var $allCollectionNames = $(catEl).parents(".col-region").find(".col-country");
+    $allCollectionNames.toggle();
+
+    if ($allCollectionNames.is(":visible")) {
+        $regionName.addClass("expanded-region");
+        $regionName.removeClass("collapsed-region");
+    } else {
+        $regionName.addClass("collapsed-region");
+        $regionName.removeClass("expanded-region");
+    }
+
+}
+
 function onCountryClicked(catEl) {
     var $countryName = $(catEl);
 
@@ -108,6 +151,7 @@ function onCountryClicked(catEl) {
     }
 
 }
+
 
 function updateCoinsCount(coinId, value) {
     $.post("save-coins.php", {id: coinId, count: value});
