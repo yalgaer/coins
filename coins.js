@@ -27,7 +27,7 @@ function updateCollections(activeColId) {
                 html += "<div class='col-type'>";
                 html += '<div>';
                 html += "<div class='col-type-name expanded-type' onclick='onTypeClicked(this)'>";
-                html += tr(collection.type) +"<em> (" + collection.my_coins_count_type + "/" + collection.coins_count_type + ")</em>";
+                html += tr(collection.type);
                 html += "</div>";
                 html += "</div>";
             }
@@ -35,17 +35,17 @@ function updateCollections(activeColId) {
             if (collection.region !== prevRegion) {
                 html += "<div class='col-region'>";
                 html += '<div>';
-                html += "<div class='col-region-name expanded-region' onclick='onRegionClicked(this)'>";
+                html += "<div class='col-region-name collapsed-region' onclick='onRegionClicked(this)'>";
                 html += tr(collection.region);
                 html += "</div>";
                 html += "</div>";
             }
 
             if (collection.country !== prevCountry) {
-                html += "<div class='col-country'>";
+                html += "<div class='col-country' style='display: none;`'>";
                 html += '<div>';
                 html += "<div class='col-country-name collapsed-country' onclick='onCountryClicked(this)'>";
-                html += tr(collection.country) + "<em> (" + collection.my_coins_count_country + "/" + collection.coins_count_country + ")</em>";
+                html += tr(collection.country);
                 html += "</div>";
                 html += "</div>";
             }
@@ -75,79 +75,56 @@ function updateCollections(activeColId) {
         }
     });
 }
-function tr(sys) {
-    switch (sys){
-        case "bons":
-            return "Банкноты";
-        case "coins":
-            return "Монеты";
-        case "Russia":
-            return "Россия";
-        case "Euro":
-            return "Евро";
-        case "Europe":
-            return "Европа";
-        case "America":
-            return "Америка";
-        case "Australia":
-            return "Австралия и Океания";
-        case "Africa":
-            return "Африка";
-        case "Asia":
-            return "Азия";
 
-    }
-    return sys;
-}
 
 function onCollectionsClicked(colId) {
     localStorage.setItem("currentCol", colId);
     setActiveCollection(colId);
 }
 
-function onTypeClicked(catEl) {
-    var $typeName = $(catEl);
+function onTypeClicked(typeEl) {
+    var $type = $(typeEl);
 
-    var $allCollectionNames = $(catEl).parents(".col-type").find(".col-country");
-    $allCollectionNames.toggle();
+    var $allRegions = $type.parents(".col-type").find(".col-region");
+    $allRegions.toggle();
 
-    if ($allCollectionNames.is(":visible")) {
-        $typeName.addClass("expanded-type");
-        $typeName.removeClass("collapsed-type");
+    if ($allRegions.is(":visible")) {
+        $type.addClass("expanded-type");
+        $type.removeClass("collapsed-type");
     } else {
-        $typeName.addClass("collapsed-type");
-        $typeName.removeClass("expanded-type");
+        $type.addClass("collapsed-type");
+        $type.removeClass("expanded-type");
     }
 }
 
-function onRegionClicked(catEl) {
-    var $regionName = $(catEl);
+function onRegionClicked(regionEl) {
+    var $region = $(regionEl);
 
-    var $allCollectionNames = $(catEl).parents(".col-region").find(".col-country");
-    $allCollectionNames.toggle();
+    var $allCountries = $(regionEl).parents(".col-region").find(".col-country");
+    $allCountries.toggle();
 
-    if ($allCollectionNames.is(":visible")) {
-        $regionName.addClass("expanded-region");
-        $regionName.removeClass("collapsed-region");
+    if ($allCountries.is(":visible")) {
+        $region.addClass("expanded-region");
+        $region.removeClass("collapsed-region");
     } else {
-        $regionName.addClass("collapsed-region");
-        $regionName.removeClass("expanded-region");
+        $region.addClass("collapsed-region");
+        $region.removeClass("expanded-region");
     }
 
 }
 
-function onCountryClicked(catEl) {
-    var $countryName = $(catEl);
+function onCountryClicked(countryEl) {
+    var $country = $(countryEl);
 
-    var $allCollectionNames = $(catEl).parents(".col-country").find(".col-name");
-    $allCollectionNames.toggle();
+    var $allCollections = $(countryEl).parents(".col-country").find(".col-name");
+    $allCollections.toggle();
 
-    if ($allCollectionNames.is(":visible")) {
-        $countryName.addClass("expanded-country");
-        $countryName.removeClass("collapsed-country");
+    if ($allCollections.is(":visible")) {
+        $country.addClass("expanded-country");
+        $country.removeClass("collapsed-country");
     } else {
-        $countryName.addClass("collapsed-country");
-        $countryName.removeClass("expanded-country");
+        $country.addClass("collapsed-country");
+        $country.removeClass("expanded-country");
     }
 
 }
@@ -155,6 +132,9 @@ function onCountryClicked(catEl) {
 
 function updateCoinsCount(coinId, value) {
     $.post("save-coins.php", {id: coinId, count: value});
+    var numberClass = value <= 0 ? "coins-number coins-number-0" : "coins-number";
+    $("#coin-card-"+coinId +" .card-input input").attr("class", numberClass);
+
 }
 
 function setActiveCollection(colId) {
@@ -164,33 +144,22 @@ function setActiveCollection(colId) {
         $("#col-id-" + colId).addClass("current-col");
 
         var html = "";
-        html += "<table>";
-        html += "<tr><th>№</th><th>Фото</th><th>Наименование</th><th>Год</th><th>Двор</th><th>Наличие</th></tr>";
+        html += "<div>";
         for (var i = 0; i < data.length; i++) {
-            var coins = data[i];
-            html += "<tr>";
-            html += "<td class='coin-pos'>";
-            html += coins.pos;
-            html += "</td>";
-            html += "</td>";
-            html += "<td>";
-            html += "<img src='" + coins.img + "'/>";
-            html += "</td>";
-            html += "<td class='coin-name'>";
-            html += coins.name;
-            html += "</td>";
-            html += "<td>";
-            html += coins.year;
-            html += "</td>";
-            html += "<td>";
-            html += coins.mint;
-            html += "<td class='coins-count-column'>";
-            html += '<input class="coins-number"  onClick="this.select()" onchange="updateCoinsCount(' + coins.id + ', this.value); this.blur()" ' +
-                'value="' + coins.number + '">';
-            html += "</td>";
-            html += "</tr>";
+            var coin = data[i];
+            var cardTypeClass = coin.type === "bons" ? "bons-card" : "coins-card";
+            var numberClass = coin.number === "0" ? "coins-number coins-number-0" : "coins-number";
+            html += "<div id='coin-card-" + coin.id + "' class='card " + cardTypeClass + "'>";
+            html += "<div><img src='" + coin.img + "'/></div>";
+            html += "<div class='card-year'>" + coin.year + "</div>";
+            html += "<div class='card-mint'>" + coin.mint + "</div>";
+            html += "<div class='card-name'>" + coin.name + "</div>";
+            html += '<div class="card-input"><input class="'+numberClass+'"  onClick="this.select()" onchange="updateCoinsCount(' + coin.id + ', this.value); this.blur()" ' +
+                'value="' + coin.number + '"></div>';
+            html += "<span style='font-weight: 700;\n'>"+ "шт." +"</span>";
+            html += "</div>";
         }
-        html = html + "</table>";
+        html = html + "</div>";
         $("#coins").html(html);
         // alert("Data: " + data + "\nStatus: " + status);
     });

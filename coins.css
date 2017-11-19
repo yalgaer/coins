@@ -1,53 +1,29 @@
 body {
     padding: 0;
     margin: 0;
+    font-family: "Istok Web", sans-serif;;
 }
 
-table {
-    border-spacing: 0 0;
-    font-family: 'Open Sans', sans-serif;
-}
-
-th {
-    padding: 10px 20px;
-    background: #56433D;
-    color: #F9C941;
-    border-right: 2px solid;
-    font-size: 0.9em;
-}
-
-th:first-child {
-    text-align: left;
-}
-
-th:last-child {
-    border-right: none;
-}
-
-td {
+#col {
     vertical-align: top;
-    padding: 10px;
-    font-size: 14px;
-    text-align: left;
-    border-top: none;
-    border-bottom: 1px solid #56433D;
-    border-right: 1px solid #56433D;
 }
 
-td:first-child {
-    border-left: 1px solid #56433D;
+#collections {
+    vertical-align: top;
+    width: 400px;
 }
 
-td:nth-child(2) {
-    text-align: left;
+#coins-column {
+    padding-left: 20px;
+    vertical-align: top;
 }
 
 .header {
     height: 50px;
     background: steelblue;
     font-size: 40px;
-    padding-left: 20px;
 }
+
 .coin-pos {
     text-align: center;
 }
@@ -56,65 +32,82 @@ td:nth-child(2) {
     max-width: 300px;
 }
 
-.col-name {
-    cursor: pointer;
-    color: #000000;
-    font-size: 10px;
-    font-family: Tahoma, Arial, Verdana, serif;
-    text-align: left;
-    padding-left: 68px;
-    display: inline-block;
-    padding-top: 5px;
-    background: url("images/tree1.gif") no-repeat 51px 0;
-}
-
-.col-name:hover {
-    color: red;
-}
-
 .current-col {
     font-weight: bold;
-    background: url("images/tree2.gif") no-repeat 51px 0;
+    /*background: url("images/tree2.gif") no-repeat 51px 0;*/
 }
 
 .col-type-name {
-    display: inline-block;
-    padding-top: 2px;
-    padding-left: 17px;
-    font-size: 30px;
+    /*padding-top: 2px;
+    padding-left: 17px;*/
+    font-size: 20px;
     cursor: pointer;
-    background: url("images/tree3.gif") no-repeat 0 0;
+    /*background: url("images/tree3.gif") no-repeat 0 0;*/
+    border-bottom: solid 1px #f5f5f5;
+    padding: 8px 10px;
 }
 
 .col-type-name:hover {
-    color: red;
-}
-
-.col-country-name:hover {
-    color: red;
-}
-
-.col-country-name {
-    display: inline-block;
-    padding-top: 2px;
-    padding-left: 51px;
-    font-size: 15px;
-    cursor: pointer;
+    color: #bb0000;
+    background: #f5f5f5;
 }
 
 .col-region-name:hover {
-    color: red;
+    color: #bb0000;
+    background: #f5f5f5;
+}
+
+.col-region {
+    font-size: 18px;
+    line-height: 1.5em;
+    cursor: pointer;
+    color: #313131;
+    border-bottom: solid 1px #f5f5f5;
+
 }
 
 .col-region-name {
-    display: inline-block;
-    padding-top: 2px;
-    padding-left: 34px;
-    font-size: 20px;
-    cursor: pointer;
+    padding: 4px 10px 4px 35px;
+
 }
 
-.collapsed-country {
+.col-country-name:hover {
+    color: #bb0000;
+    background: #f5f5f5;
+}
+
+.col-country {
+    font-size: 16px;
+    line-height: 1.5em;
+    cursor: pointer;
+    color: #313131;
+    border-bottom: solid 1px #f5f5f5;
+
+}
+
+.col-country-name {
+    padding: 4px 10px 4px 60px;
+    /*padding-top: 2px;
+    padding-left: 51px;*/
+}
+
+.col-name:hover {
+    color: #bb0000;
+    background: #f5f5f5;
+}
+
+.col-name {
+    cursor: pointer;
+    border-bottom: solid 1px #f5f5f5;
+    line-height: 1.5em;
+    color: #313131;
+    font-size: 14px;
+    text-align: left;
+    padding: 4px 10px 4px 85px;;
+    /*background: url("images/tree1.gif") no-repeat 51px 0;*/
+}
+
+/*.collapsed-country {
     background: url("images/tree3.gif") no-repeat 34px 0;
 }
 
@@ -135,27 +128,25 @@ td:nth-child(2) {
 
 .expanded-region {
     background: url("images/tree2.gif") no-repeat 17px 0;
-}
+}*/
 
-#col {
-    border: none;
-    padding: 0 20px;
-
-}
-#coins-column {
-    border: none;
-    padding: 0 100px;
-}
 .coins-number {
     border: 0;
     text-align: right;
     max-width: 40px;
     margin-right: 5px;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
 }
+.coins-number-0 {
+    color: #bb0000;
+}
+
+
 .coins-count-column {
     max-width: 20px;
 }
+
 label {
     width: 32px;
     height: 26px;
@@ -177,17 +168,47 @@ input[type="checkbox"]:checked + span {
     background-position: 0 -26px;
 }
 
-#coins table img {
-    max-width: 320px;
-    max-height: 120px;
+.card {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
 }
 
-#bons-pam-table img {
-    width: 150px;
-    height: 320px;
+.bons-card {
+    width: 460px;
 }
 
-#bons-reg-table img {
-    width: 320px;
-    height: 150px;
+.coins-card {
+    width: 250px;
+    vertical-align: top;
 }
+
+.coins-card img {
+    max-width: 200px;
+}
+
+.bons-card img {
+    max-width: 350px;
+}
+
+.card-name {
+    font-size: 16px;
+}
+
+.card-year {
+    color: #999;
+    display: inline-block;
+    padding-left: 5px;
+    font-size: 10px;
+}
+
+.card-mint {
+    display: inline-block;
+    color: #999;
+    padding-left: 2px;
+    font-size: 10px;
+}
+.card-input {
+    display: inline-block;
+}
+
