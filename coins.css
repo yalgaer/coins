@@ -139,7 +139,7 @@ body {
     font-weight: 700;
 }
 .coins-number-0 {
-    color: #bb0000;
+    color: #999;
 }
 
 
@@ -189,6 +189,7 @@ input[type="checkbox"]:checked + span {
 
 .bons-card img {
     max-width: 350px;
+    max-height: 150px;
 }
 
 .card-name {
