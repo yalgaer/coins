@@ -165,7 +165,7 @@ function tr(sys) {
         case "dzhib_afrika":
             return "Джибути";
         case "kongo_afrika":
-            return "ДР Конго";
+            return "ДР Конго (Заир)";
         case "egy_afrika":
             return "Египет";
         case "zamb_afrika":
@@ -437,10 +437,10 @@ function tr(sys) {
         case "ftt_aust":
             return "Французские Тихоокеанские Острова";
         case "rkongo_afrika":
-            return "Республика Конго";
+            return "Конго";
         case "ekvgv_afrika":
             return "Экваториальная Гвинея";
-        case "bur_afrika":
+        case "burf_afrika":
             return "Буркина-Фасо";
         case "sva_afrika":
             return "Свазиленд";
