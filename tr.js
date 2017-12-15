@@ -251,7 +251,7 @@ function tr(sys) {
         case "bah_asia":
             return "Бахрейн";
         case "bir_asia":
-            return "Бирма";
+            return "Мьянма (Бирма)";
         case "but_asia":
             return "Бутан";
         case "tim_asia":
@@ -276,7 +276,7 @@ function tr(sys) {
             return "Иран";
         case "iemen_asia":
             return "Йемен";
-        case "kam_asia":
+        case "kamb_asia":
             return "Камбоджа";
         case "kat_asia":
             return "Катар";
@@ -290,11 +290,11 @@ function tr(sys) {
             return "Кувейт";
         case "laos_asia":
             return "Лаос";
-        case "liv_asia":
+        case "livan_asia":
             return "Ливан";
         case "mak_asia":
             return "Макао";
-        case "mal_asia":
+        case "malaz_asia":
             return "Малайзия";
         case "mald_asia":
             return "Мальдивы";
