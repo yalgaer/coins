@@ -334,7 +334,7 @@ function tr(sys) {
             return "Австрия";
         case "alb_europe":
             return "Албания";
-        case "bel_europe":
+        case "belg_europe":
             return "Бельгия";
         case "bol_europe":
             return "Болгария";
@@ -404,8 +404,6 @@ function tr(sys) {
             return "Хорватия";
         case "cheh_europe":
             return "Чехия";
-        case "chehsl_europe":
-            return "Чехословакия";
         case "shvec_europe":
             return "Швеция";
         case "shveic_europe":
