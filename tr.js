@@ -76,11 +76,11 @@ function tr(sys) {
             return "Ямайка";
         case "arg_south_amerika":
             return "Аргентина";
-        case "bol_south_amerika":
+        case "bolivia_south_amerika":
             return "Боливия";
         case "bra_south_amerika":
             return "Бразилия";
-        case "ven_south_amerika":
+        case "venes_south_amerika":
             return "Венесуэла";
         case "gai_south_amerika":
             return "Гайана";
@@ -112,7 +112,7 @@ function tr(sys) {
             return "Армения";
         case "bel_sng":
             return "Белоруссия";
-        case "gr_sng":
+        case "gruz_sng":
             return "Грузия";
         case "kaz_sng":
             return "Казахстан";
@@ -130,7 +130,7 @@ function tr(sys) {
             return "Приднестровье";
         case "tad_sng":
             return "Таджикистан";
-        case "tur_sng":
+        case "turk_sng":
             return "Туркменистан";
         case "uz_sng":
             return "Узбекистан";
@@ -366,9 +366,9 @@ function tr(sys) {
             return "Кипр";
         case "luk_europe":
             return "Люксембург";
-        case "mak_europe":
+        case "maked_europe":
             return "Македония";
-        case "mal_europe":
+        case "malta_europe":
             return "Мальта";
         case "nid_europe":
             return "Нидерланды (Голландия)";
@@ -444,8 +444,8 @@ function tr(sys) {
             return "Свазиленд";
         case "bru_asia":
             return "Бруней";
-        case "kipr_asia":
-            return "Кипр";
+        case "euro_europe":
+            return "Европейский союз";
     }
     return sys;
 }
