@@ -20,7 +20,7 @@ mysqli_set_charset($con,"utf8");
 // 2) Query database for data
 //--------------------------------------------------------------------------
 $colId = $_GET["id"];
-$result = mysqli_query($con, "SELECT * FROM coins.asset WHERE asset.col_id = '" . $colId . "'");          //query
+$result = mysqli_query($con, "SELECT * FROM coins.asset WHERE asset.col_id = '" . $colId . "' ORDER BY pos");          //query
 //$array = mysqli_fetch_row($result);                          //fetch result
 
 $rows = array();
