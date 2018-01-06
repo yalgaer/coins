@@ -446,6 +446,10 @@ function tr(sys) {
             return "Бруней";
         case "euro_europe":
             return "Европейский союз";
+        case "polin_aust":
+            return "Новая Полинезия";
+        case "kaled_aust":
+            return "Новая Каледония";
     }
     return sys;
 }
