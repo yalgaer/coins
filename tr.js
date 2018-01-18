@@ -450,6 +450,18 @@ function tr(sys) {
             return "Новая Полинезия";
         case "kaled_aust":
             return "Новая Каледония";
+        case "chehsl_europe":
+            return "Чехословакия";
+        case "monako_europe":
+            return "Монако";
+        case "sanm_europe":
+            return "Сан-Марино";
+        case "vat_europe":
+            return "Ватикан";
+        case "and_europe":
+            return "Андорра";
+
+
     }
     return sys;
 }
