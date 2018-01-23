@@ -8,19 +8,26 @@
     <link rel="stylesheet" type="text/css" href="coins.css">
 
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
     <script src="tr.js"></script>
     <script src="coins.js"></script>
+
 </head>
 <body>
 <div class="header">ananasmkr.ru</div>
 <!--Всего монет: <span id="coins-count">Неизвестно</span>-->
 <table>
     <tr>
+        <form>
+            <p><input id="searchf" type="search" placeholder="Поиск">
+        </form>
+    </tr>
+    <tr>
         <td id="col">
-            <div id="collections">Коллекции</div>
+            <div id="collections" class="layer">Коллекции</div>
         </td>
         <td id="coins-column">
-            <div id="coins">Монеты</div>
+            <div id="coins" class="layer">Монеты</div>
         </td>
     </tr>
 </table>
