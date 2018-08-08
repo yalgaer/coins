@@ -390,9 +390,9 @@ function tr(sys) {
             return "Сербия";
         case "kr_europe":
             return "Сербская Краина";
-        case "sl_europe":
+        case "slovakia_europe":
             return "Словакия";
-        case "slov_europe":
+        case "slovenia_europe":
             return "Словения";
         case "far_europe":
             return "Фарерские Острова";
